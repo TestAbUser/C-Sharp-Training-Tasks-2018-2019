@@ -1,0 +1,34 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".txt" #>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+ <CodeSnippet Format="1.0.0">
+  <Header>
+   <Title>Custom comment</Title>
+   <Shortcut>cmnt</Shortcut>
+   <Description>Code snippet for a custom comment block</Description>
+   <Author>Rashid Isayev</Author>
+   <SnippetTypes>
+    <SnippetType>Expansion</SnippetType>
+   </SnippetTypes>
+  </Header>
+  <Snippet>
+   <Code Language="csharp"><![CDATA[
+ /// <Author>Rashid Isayev</Author>
+ /// <DateOfCreation><#=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")#></DateOfCreation>]]>
+   </Code>
+  </Snippet>
+ </CodeSnippet>
+</CodeSnippets>
+ <#
+  System.IO.StreamReader sr = new System.IO.StreamReader(@"D:\Local_Git_Repository\automation-net\C# for AT Course\05 - ReferenceTypes\Rashid_Isayev_Task05\Task1\AuthorDateTimeComment.txt");
+  string sourceText = sr.ReadToEnd();
+  sr.Close();
+ 
+  System.IO.StreamWriter sw = new System.IO.StreamWriter(@"C:\Users\Rashid_Isayev\Documents\Visual Studio 2019\Code Snippets\Visual C#\My Code Snippets\AuthorDateTimeComments.snippet");
+  sw.WriteLine(sourceText);
+  sw.Close();
+#>
